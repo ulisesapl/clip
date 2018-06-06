@@ -1,0 +1,15 @@
+#!/bin/bash
+if [ -z $JAVA_HOME ]
+then
+    java=$(type -p java)
+else
+    java=$JAVA_HOME/bin/java
+fi
+
+if [ -z $java ]
+then
+	echo "Java not found"
+	exit 1
+fi
+
+$java -jar transactions-0.0.1-SNAPSHOT.jar $1 $2 "$3" 
